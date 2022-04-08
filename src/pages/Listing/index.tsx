@@ -19,13 +19,11 @@ const [page, setPage] = useState<MoviePage>({
     numberOfElements: 0,
     empty: true
 })
-
     useEffect(() =>{
         axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}&sort=title`)
     .then(response =>{
         const data =response.data as MoviePage;
-        setPage(data)
-       
+        setPage(data)       
     })
     },[pageNumber]);
     
